@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="#000000"
+        android:padding="20dp">
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Calcul de Moyenne"
+            android:textColor="#FFFFFF"
+            android:textSize="24sp"
+            android:layout_marginBottom="20dp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/note1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Note 1"
+            android:background="#FFFFFF"
+            android:inputType="numberDecimal"
+            android:layout_marginBottom="10dp"/>
+
+        <EditText
+            android:id="@+id/note2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Note 2"
+            android:background="#FFFFFF"
+            android:inputType="numberDecimal"
+            android:layout_marginBottom="10dp"/>
+
+        <EditText
+            android:id="@+id/note3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Note 3"
+            android:background="#FFFFFF"
+            android:inputType="numberDecimal"
+            android:layout_marginBottom="20dp"/>
+
+        <Button
+            android:id="@+id/calculerBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Calculer"
+            android:layout_gravity="center_horizontal" />
+
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

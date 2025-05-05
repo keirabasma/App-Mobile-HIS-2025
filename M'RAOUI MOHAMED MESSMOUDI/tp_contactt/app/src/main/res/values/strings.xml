@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">tp_contactt</string>
+    <string name="contact_list">Contact List</string>
+    <string name="create_contact">Create Contact</string>
+    <string name="enter_le_prenom">Enter First Name</string>
+    <string name="enter_le_numero_de_telephone">Enter Phone Number</string>
+    <string name="save">Save</string>
+    <!-- Added the missing string resource -->
+    <string name="enter_nom">Enter Name</string>
+</resources>
+
