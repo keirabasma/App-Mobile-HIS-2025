@@ -1,0 +1,54 @@
+package com.example.contactmanager;
+
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+
+import java.util.ArrayList;
+
+public class ContactAdapter extends ArrayAdapter<Contact> {
+    
+    private final ArrayList<Contact> listeContacts;
+    private final LayoutInflater inflater;
+    private final int ressourceLayout;
+
+    public ContactAdapter(Context context, int ressource, ArrayList<Contact> contacts) {
+        super(context, ressource, contacts);
+        this.inflater = LayoutInflater.from(context);
+        this.ressourceLayout = ressource;
+        this.listeContacts = contacts;
+    }
+
+    @NonNull
+    @Override
+    public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
+        View view = convertView;
+        
+        if (view == null) {
+            view = inflater.inflate(ressourceLayout, parent, false);
+        }
+        
+        TextView tvNom = view.findViewById(R.id.tv_nom);
+        TextView tvPrenom = view.findViewById(R.id.tv_prenom);
+        TextView tvTelephone = view.findViewById(R.id.tv_telephone);
+        
+        Contact contact = listeContacts.get(position);
+        
+        tvNom.setText("Nom: " + contact.getNom());
+        tvPrenom.setText("Prénom: " + contact.getPrenom());
+        tvTelephone.setText("Téléphone: " + contact.getTelephone());
+        
+        return view;
+    }
+
+    @Override
+    public int getCount() {
+        return listeContacts.size();
+    }
+}
