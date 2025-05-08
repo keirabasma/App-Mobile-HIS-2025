@@ -1,0 +1,10 @@
+ 5.1 Expliquez brièvement l’avertissement suivant :
+Warning: not targeting the latest versions of Android; compatibility modes apply. Consider testing and updating this version. Consult the android.os.Build.VERSION_CODES javadoc for details. 
+Resource: AndroidManifest.xml Path : /Exo5FinalE14 Location : line 10
+
+
+L’application a-t-elle besoin de permissions particulières ?
+<uses-permission android:name="android.permission.VIBRATE"/>
+
+Expliquez pourquoi l’application a besoin de définir un récepteur d’évènement (BroadcastReceiver).
+Le BroadcastReceiver est utilisé come un ecouteur des alarmes déclenchées par le système via AlarmManage
