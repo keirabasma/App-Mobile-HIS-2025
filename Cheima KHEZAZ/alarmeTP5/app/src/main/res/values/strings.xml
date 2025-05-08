@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Exo5FinalE14</string>
+    <string name="start_alarm">Démarrer le compteur</string>
+    <string name="toast_start">Cette alarme se déclenchera dans %1$d heures et %2$d minutes</string>
+    <string name="toast_end">Le temps est écoulé</string>
+    <string name="notification_title">Alarme</string>
+    <string name="notification_text">Fin de la durée programmée</string>
+</resources>
