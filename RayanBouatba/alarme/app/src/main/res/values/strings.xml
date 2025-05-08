@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Alarme</string>
+    <string name="button_start">Démarrer le compteur</string>
+    <string name="toast_delay">
+        Cette alarme se déclenchera dans %1$d heures et %2$d minutes
+    </string>
+    <string name="toast_elapsed">Le temps est écoulé</string>
+    <string name="notification_title">Alarme</string>
+    <string name="notification_message">
+        Fin de la durée programmée
+    </string>
+</resources>
