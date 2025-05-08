@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Exo5FinalE14</string>
+    <string name="select_time">Selectionnez lheure</string>
+    <string name="start_counter">Demarrer le compteur</string>
+    <string name="alarm_title">Alarme</string>
+    <string name="alarm_message">Fin de la duree programmee</string>
+</resources>
