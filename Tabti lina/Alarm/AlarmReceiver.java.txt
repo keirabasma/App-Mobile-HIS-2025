@@ -1,0 +1,49 @@
+package com.example.exo5finale14leena;
+
+public class AlarmReceiver extends BroadcastReceiver {
+    
+    @Override
+    public void onReceive(Context context, Intent intent) {
+      
+        Toast.makeText(context, R.string.time_elaps, Toast.LENGTH_LONG).show();
+        
+       
+        Vibrator vibrator = (Vibrator) context.getSystemService(Context.VIBRATOR_SERVICE);
+        if (vibrator != null && vibrator.hasVibrator()) {
+            vibrator.vibrate(VibrationEffect.createOneShot(4000, VibrationEffect.DEFAULT_AMPLITUDE));
+             
+        }
+        
+        
+        createNotification(context);
+    }
+    
+    private void createNotification(Context context) {
+        NotificationManager notificationManager = 
+                (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
+        
+      
+        
+        Intent notificationIntent = new Intent(context, AlarmActivity.class);
+        notificationIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+        notificationIntent.putExtra("RESET_ALARM", true);
+        
+        PendingIntent pendingIntent = PendingIntent.getActivity(
+                context, 
+                0, 
+                notificationIntent, 
+                PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE);
+        
+     
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(context, "alarm_channel")
+                .setSmallIcon(android.R.drawable.ic_dialog_info)
+                .setContentTitle(context.getString(R.string.alarm_notification_title))
+                .setContentText(context.getString(R.string.alarm_notification_message))
+                .setPriority(NotificationCompat.PRIORITY_HIGH)
+                .setContentIntent(pendingIntent)
+                .setAutoCancel(true);
+        
+        
+        notificationManager.notify(1, builder.build());
+    }
+}

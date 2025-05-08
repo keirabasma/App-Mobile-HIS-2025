@@ -1,0 +1,91 @@
+package com.example.contactmanager;
+
+import android.content.Intent;
+import android.content.SharedPreferences;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.EditText;
+import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+
+import java.lang.reflect.Type;
+import java.util.ArrayList;
+
+public class MainActivity extends AppCompatActivity {
+
+    private EditText editNom, editPrenom, editTelephone;
+    private ArrayList<Contact> contacts;
+    private static final String PREF_NAME = "ContactsPreferences";
+    private static final String CONTACTS_KEY = "contacts_list";
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        // Initialisation des champs de saisie
+        editNom = findViewById(R.id.edit_nom);
+        editPrenom = findViewById(R.id.edit_prenom);
+        editTelephone = findViewById(R.id.edit_telephone);
+
+        // Chargement des contacts existants
+        chargerContacts();
+    }
+
+    public void enregistrerContact(View view) {
+        // Récupération des valeurs saisies
+        String nom = editNom.getText().toString().trim();
+        String prenom = editPrenom.getText().toString().trim();
+        String telephone = editTelephone.getText().toString().trim();
+
+        // Vérification des champs
+        if (nom.isEmpty() || prenom.isEmpty() || telephone.isEmpty()) {
+            Toast.makeText(this, "Veuillez remplir tous les champs", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        // Création du nouveau contact
+        Contact nouveauContact = new Contact(nom, prenom, telephone);
+        
+        // Ajout du contact à la liste
+        contacts.add(nouveauContact);
+        
+        // Sauvegarde de la liste mise à jour
+        sauvegarderContacts();
+        
+        // Affichage d'un message de confirmation
+        Toast.makeText(this, "Contact ajouté avec succès", Toast.LENGTH_SHORT).show();
+        
+        // Redirection vers la liste des contacts
+        Intent intent = new Intent(MainActivity.this, ListeContactsActivity.class);
+        startActivity(intent);
+    }
+
+    private void chargerContacts() {
+        SharedPreferences preferences = getSharedPreferences(PREF_NAME, MODE_PRIVATE);
+        String json = preferences.getString(CONTACTS_KEY, null);
+        
+        if (json != null) {
+            Gson gson = new Gson();
+            Type type = new TypeToken<ArrayList<Contact>>() {}.getType();
+            contacts = gson.fromJson(json, type);
+        } else {
+            contacts = new ArrayList<>();
+        }
+    }
+
+    private void sauvegarderContacts() {
+        SharedPreferences preferences = getSharedPreferences(PREF_NAME, MODE_PRIVATE);
+        SharedPreferences.Editor editor = preferences.edit();
+        
+        Gson gson = new Gson();
+        String json = gson.toJson(contacts);
+        
+        editor.putString(CONTACTS_KEY, json);
+        editor.apply();
+    }
+}
