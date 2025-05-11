@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    tools:context=".MainActivity">
+
+    <!-- NumberPicker للدقائق -->
+   <GridLayout
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:orientation="horizontal">
+
+       <NumberPicker
+           android:id="@+id/hoursPicker"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_marginRight="15dp"
+           android:defaultValue="0"
+           />
+       <NumberPicker
+           android:id="@+id/minutePicker"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_marginRight="15dp"
+           android:defaultValue="0"
+           />
+
+       <!-- NumberPicker للثواني -->
+       <NumberPicker
+           android:id="@+id/secondPicker"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_marginLeft="15dp"
+           android:defaultValue="0"
+           />
+   </GridLayout>
+
+    <!-- زر بدء المؤقت -->
+    <Button
+        android:id="@+id/startButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Start Timer" />
+
+</LinearLayout>

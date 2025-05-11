@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">My_Application1</string>
+
+    <dimen name="margin">10dp</dimen>
+    <dimen name="margin_toas">30dp</dimen>
+    <dimen name="padding">10dp</dimen>
+    <dimen name="margin_calcul_top">70dp</dimen>
+
+</resources>

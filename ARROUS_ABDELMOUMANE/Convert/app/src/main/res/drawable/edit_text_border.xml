@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <solid android:color="#FFFFFF" /> <!-- اللون الداخلي للـ EditText -->
+    <corners android:radius="8dp" /> <!-- تعيين زاوية حواف مربعة أو دائرية -->
+    <stroke
+        android:color="#6200EE"
+    android:width="2dp" />
+    <padding
+        android:left="8dp"
+        android:top="8dp"
+        android:right="8dp"
+        android:bottom="8dp" />
+</shape>

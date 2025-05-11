@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/app_bar"
+        android:background="@color/app_bar"
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+
+        <TextView
+            android:id="@+id/text_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Convertiseur"
+            android:gravity="center"
+            android:textSize="18sp"
+            android:textColor="@android:color/black" />
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <!-- تعديل TableLayout -->
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="16dp"
+        android:stretchColumns="1"
+        android:orientation="vertical">
+
+        <!-- EditText مع الحدود -->
+        <TableRow
+            android:layout_marginTop="200dp">
+            <EditText
+                android:id="@+id/edit_text"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:hint="Enter value"
+                android:inputType="numberDecimal"
+                android:padding="16dp"
+                android:layout_margin="10dp"
+                android:background="@drawable/edit_text_border"/>
+        </TableRow>
+
+        <!-- صف الأزرار -->
+        <TableRow>
+            <Button
+                android:id="@+id/button1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Dinnar" />
+
+            <Button
+                android:id="@+id/button2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.7"
+                android:text="TO"
+                />
+
+
+            <Button
+                android:id="@+id/button3"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Euroo" />
+        </TableRow>
+        <TableRow>
+
+            <Button
+                android:id="@+id/calculate"
+                android:layout_width="0dp"
+                android:layout_height="67dp"
+                android:layout_weight="1"
+                android:text="Calculate" />
+        </TableRow>
+    </TableLayout>
+
+</LinearLayout>
